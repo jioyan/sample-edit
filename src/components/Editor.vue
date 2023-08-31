@@ -13,43 +13,36 @@
       <el-popover
         placement="bottom"
         trigger="manual"
-        width="160"
+        width="260"
         class="link-popper"
         v-model="visible"
         :append-to-body="false"
         popper-class="link-popper"
       >
-        <div>
-          <el-input
-            v-model="link"
-            placeholder="请输入链接"
-            @input="hangdleLinkChange"
-            style="width: 252px"
-          ></el-input>
-          <div class="link-content" style="display: flex">
-            <span v-show="isLinkError" class="error">请输入链接</span>
-            <!-- <ing-svg
-              style="margin-left: auto"
-              iconName="icon-gonggong-fuhe-1"
-              class="icon-20"
-              @click="handleLinkSave"
-            ></ing-svg> -->
-            <span
-              style="color: #ff0000; padding-left: 4px"
-              class="icon-20 iconfont icon-gonggong-bufuhe"
-              @click="visible = false"
-            ></span>
-          </div>
+        <el-input
+          v-model="link"
+          placeholder="请输入链接"
+          @input="hangdleLinkChange"
+          style="width: 252px"
+        ></el-input>
+        <div class="link-content" style="display: flex">
+          <span v-show="isLinkError" class="error">请输入链接</span>
+          <span
+            style="color: #ff0000; padding-left: 4px"
+            class="icon-20 iconfont icon-gonggong-bufuhe"
+            @click="visible = false"
+          ></span>
         </div>
         <i
           slot="reference"
           data-cmd="createLink"
           data-pop="输入链接"
           @click="handleClick"
+          style="font-size: 20px"
           class="iconfont icon-gonggong-lianjie"
         ></i>
       </el-popover>
-      <span data-cmd="unlink">删除链接</span>
+      <!-- <span data-cmd="unlink">删除链接</span> -->
     </div>
     <div class="edit-content" tabindex="1">
       <iframe
@@ -228,10 +221,13 @@ export default {
 </script>
 <style lang="less" scoped>
 /deep/.link-popper {
-  box-sizing: border-box;
-  width: 272px;
-  min-width: 272px;
-  padding: 12px 8px 12px 12px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  // box-sizing: border-box;
+  // width: 272px;
+  // min-width: 272px;
+  // padding: 12px 8px 12px 12px;
   .error {
     color: #df4545;
   }
@@ -262,6 +258,8 @@ export default {
 .edit-toolbar {
   box-sizing: border-box;
   height: 40px;
+  text-align: left;
+  line-height: 40px;
   padding-left: 16px;
   border: 1px solid #dcdfe6;
   border-bottom: none;
